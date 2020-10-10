@@ -16,6 +16,7 @@
 
                     {{ __('You are logged in!') }}
                 </div>
+            <a href="{{route('calculadora.create')}}">Registro</a>
             </div>
         </div>
     </div>
