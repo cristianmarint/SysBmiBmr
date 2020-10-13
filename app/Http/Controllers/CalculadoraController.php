@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
+use Exception;
 use App\Models\persona;
 
 class CalculadoraController extends Controller
@@ -47,22 +48,56 @@ class CalculadoraController extends Controller
             'estatura' => 'required',
             'nivel_actividad' => 'required',
         ]);
-        
+
         DB::beginTransaction();
         try{
             $person = NEW Persona();
             $person->nombre = $request->input('nombre');
             $person->apellido = $request->input('apellido');
             $person->fecha_nacimiento = $request->input('fecha_nacimiento');
-            $person->genero = $request->input('genero');
-            $person->peso = $request->input('peso');
-            $person->estatura = $request->input('estatura');
-            $person->nivel_actividad = $request->input('nivel_actividad');
+            $person->genero = strtoupper($request->input('genero'));
+            $person->peso = (int)$request->input('peso');
+            $person->estatura = (int)$request->input('estatura');
+            $person->nivel_actividad = strtoupper($request->input('nivel_actividad'));
+            $person->bmi= round(($person->peso /(pow($person->estatura,2))*10000),5);
+
+            if(strcmp($person->genero,'MASCULINO') == 0){
+                $person->bmr =  66 + (13.7 * $person->peso ) + (5 * $person->estatura ) - (6.8 * (date("Y") - date('Y', strtotime($person->fecha_nacimiento)))) ;
+            }elseif (strcmp($person->genero,'FEMENINO') == 0){
+                $person->bmr =  655 + (9.6 * $person->peso ) + (1.8 * $person->estatura ) - (4.7 * (date("Y") - date('Y', strtotime($person->fecha_nacimiento)))) ;
+            }
+
+            if(strcmp($person->nivel_actividad,'SEDENTARIO') == 0){
+                $person->calorias_diarias = $person->bmr * 1.2;
+                }elseif (strcmp($person->nivel_actividad,'LIGERAMENTE ACTIVO') == 0) {
+                        $person->calorias_diarias = $person->bmr * 1.375;                    
+                    }elseif (strcmp($person->nivel_actividad,'MODERADAMENTE ACTIVO') == 0) {
+                            $person->calorias_diarias = $person->bmr * 1.55;                    
+                        }elseif (strcmp($person->nivel_actividad,'MUY ACTIVO') == 0) {
+                                $person->calorias_diarias = $person->bmr * 1.725;                    
+                            }elseif (strcmp($person->nivel_actividad,'EXTREMADAMENTE ACTIVO') == 0) {
+                                $person->calorias_diarias = $person->bmr * 1.9;                    
+            }
+
+            if($person->bmi <= 18.5){
+                $person->bmi_categoria = strtoupper('peso bajo');
+                }elseif($person->bmi<=24.9){
+                    $person->bmi_categoria = strtoupper('Saludable');
+                    }elseif($person->bmi<=29.9){
+                        $person->bmi_categoria = strtoupper('Sobrepeso');
+                        }else{
+                            $person->bmi_categoria = strtoupper('Obeso');
+                        }
+
+
+            // dd($person);
+
             $person->save();
             $success = true;
         } catch (\exception $e){
             $success = false;
             $error_save = $e->getMessage();
+            dd($e);
             DB::rollback();
         }
         if ($success){
@@ -71,7 +106,6 @@ class CalculadoraController extends Controller
             session()->flash('create', $person->nombre);
             return redirect(route('home'))->with('success');
         }else{
-            // dd("else");
             session()->flash('error', 'error');
             return redirect()->back()->withInput();
         }

@@ -22,8 +22,10 @@ class CreatePersonasTable extends Migration
             $table->integer('peso');
             $table->integer('estatura');
             $table->string('nivel_actividad');
-            $table->float('bmi',5,4);
-            $table->float('bmr',5,4);
+            $table->string('bmi_categoria');
+            $table->float('calorias_diarias',10,5);
+            $table->float('bmi',10,5);
+            $table->float('bmr',10,5);
             
             $table->timestamps();
             $table->softDeletes();

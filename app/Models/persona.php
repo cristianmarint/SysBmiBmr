@@ -22,6 +22,10 @@ class persona extends Model
         'genero',
         'peso',
         'estatura',
-        'nivel_actividad'
+        'nivel_actividad',
+        'calorias_diarias',
+        'bmi',
+        'bmi_categoria',
+        'bmr'
     ];
 }
