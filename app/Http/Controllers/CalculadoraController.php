@@ -103,7 +103,7 @@ class CalculadoraController extends Controller
         if ($success){
             // dd("if");
             DB::commit();
-            session()->flash('create', $person->nombre);
+            session()->flash('create', $person->nombre." ".$person->apellido);
             return redirect(route('home'))->with('success');
         }else{
             session()->flash('error', 'error');

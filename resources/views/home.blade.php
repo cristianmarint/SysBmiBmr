@@ -1,6 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
+
+@if(Session::has('create'))
+    <script>
+        setTimeout(function(){
+                function_swal_confirm('{{Session::get('create')}}', 'creados')
+        }, 500);
+    </script>
+@elseif(Session::has('update'))
+    <script>
+        setTimeout(function(){
+            function_swal_confirm('{{Session::get('update')}}', 'editados')
+        }, 500);
+    </script>
+@endif
+
 <div>
     <div class="container">
         <div class="row">
@@ -29,4 +44,10 @@
         </div>
     </div>
 </div>
+
+<script>
+    function function_swal_confirm(text, type) {
+        swal("Informacion almacenada", "Los datos de "+text+" han sido "+type+" correctamente", "success");
+    }
+</script>
 @endsection
