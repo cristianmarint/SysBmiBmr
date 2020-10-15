@@ -33,7 +33,11 @@ BMR * 1.9
 Practica ejercicio o deporte diario y tiene un trabajo con alto requerimiento físico.
 
 ## Datos requeridos
+- Nombre
+- Apellidos
+- Fecha nacimiento
+    - Edad
 - Genero
-- Altura(cm)
 - peso (kg)
-- Edad
+- Altura(cm)
+- Nivel actividad
