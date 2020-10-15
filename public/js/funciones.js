@@ -72,3 +72,19 @@ function bmr_nivel_actividad() {
   $('#bmr').val(bmr);
   $('#factor_actividad').val(factor_actividad);
 }
+
+
+
+function salir_sin_guardar() {
+  if( document.getElementById('nombre').value != '' &&
+      document.getElementById('apellido').value != '' &&
+      document.getElementById('fecha_nacimiento').value != '' &&
+      document.getElementById('genero').value != '' &&
+      document.getElementById('peso').value != '' &&
+      document.getElementById('estatura').value != '' &&
+      document.getElementById('nivel_actividad').value != '') {
+      $('#modal_salir_sin_guardar').modal('show');      
+  }else{
+    window.location.href = history.back();
+  }
+}

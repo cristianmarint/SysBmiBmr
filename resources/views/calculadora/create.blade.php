@@ -18,12 +18,12 @@
             @csrf
               <div class="form-group">
                 <label for="nombre">Nombre</label>
-                <input type="text" class="form-control" name="nombre" placeholder="Juan">
+                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Juan">
               </div>
 
               <div class="form-group">
                 <label for="apellidos">Apellidos</label>
-                <input type="text" class="form-control" name="apellido" placeholder="Peras Lopez">
+                <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Peras Lopez">
               </div>
 
               <div class="form-group">
@@ -114,8 +114,13 @@
               
               <div class="form-group row">
                   <div class="col-sm-12 offset-sm-5">
-                      <button type="button"  onclick="window.location='{{route('home')}}'" class="btn btn-secondary">Salir</button>
-                      <button type="submit" class="btn btn-primary">Guardar</button>
+                      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal_salir_sin_guardar">
+                        Salir
+                      </button>
+
+                      <button type="submit" class="btn btn-primary">
+                        Guardar
+                      </button>
                   </div>
               </div>
 
@@ -123,7 +128,7 @@
 
           </div>
           
-          {{-- Modal --}}
+          {{-- Modal informacion --}}
           <div class="modal fade" id="informacion_niveles_actividad" tabindex="-1" role="dialog" aria-labelledby="informacion_niveles_actividad" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
@@ -143,6 +148,26 @@
             </div>
           </div>
 
+
+          <div class="modal fade" id="modal_salir_sin_guardar" tabindex="-1" role="dialog" aria-labelledby="modal_salir_sin_guardar" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="">¿Seguro que quiere salir sin guardar?</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>Todos los cambios seran borrados
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-dismiss="modal">Continuar editando</button>
+                  <button type="button" class="btn btn-danger" onclick="window.location='{{route('home')}}'">Salir</button>
+                </div>
+              </div>
+            </div>
+          </div>
 
       </div>
   </div>
