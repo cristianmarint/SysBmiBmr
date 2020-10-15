@@ -61,6 +61,12 @@
                   <option value="Extremadamente activo">Extremadamente activo</option>
                 </select>
               </div>
+              {{-- Activar Modal --}}
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#informacion_niveles_actividad">
+                <i class="fas fa-question-circle"></i>
+                Informacion sobre niveles de actividad
+              </button>
+              
 
               
               <hr>
@@ -116,6 +122,28 @@
             </form>
 
           </div>
+          
+          {{-- Modal --}}
+          <div class="modal fade" id="informacion_niveles_actividad" tabindex="-1" role="dialog" aria-labelledby="informacion_niveles_actividad" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="informacion_niveles_actividad">Informacion sobre niveles de actividad</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <img src="/img/descripcion_niveles_actividad.png" class="img-fluid">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
       </div>
   </div>
 @endsection
