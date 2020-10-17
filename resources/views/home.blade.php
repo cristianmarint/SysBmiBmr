@@ -37,7 +37,7 @@
             @endif
             <div class="col-md-12 text-center d-xl-flex justify-content-xl-center" style="text-align: center;">
                 <div class="btn-group" role="group">
-                    <a class="btn btn-primary m-5" href="#" type="button">Consultar</a>
+                    <a class="btn btn-primary m-5" href="{{route('calculadora.index')}}" type="button">Consultar</a>
                     <a class="btn btn-primary m-5" href="{{route('calculadora.create')}}" type="button">Registro</a>
                 </div>
             </div>

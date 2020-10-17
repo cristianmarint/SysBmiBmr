@@ -18,7 +18,8 @@ class CalculadoraController extends Controller
      */
     public function index()
     {
-        return redirect(route('calculadora.create'));
+        $personas = Persona::all();
+        return view('calculadora.index',compact('personas'))->render();
     }
 
     /**
@@ -104,7 +105,7 @@ class CalculadoraController extends Controller
             // dd("if");
             DB::commit();
             session()->flash('create', $person->nombre." ".$person->apellido);
-            return redirect(route('home'))->with('success');
+            return redirect(route('calculadora.index'))->with('success');
         }else{
             session()->flash('error', 'error');
             return redirect()->back()->withInput();
@@ -119,7 +120,8 @@ class CalculadoraController extends Controller
      */
     public function show($id)
     {
-        //
+        $persona = Persona::findOrFail($id);
+        return view('calculadora.show', compact('persona'));
     }
 
     /**
