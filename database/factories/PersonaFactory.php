@@ -39,8 +39,8 @@ class personaFactory extends Factory
             ];
             
             $generos = [
-                'masculino',
-                'femenino',
+                'MASCULINO',
+                'FEMENINO',
             ];
 
         return [
