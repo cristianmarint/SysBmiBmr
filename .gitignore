@@ -12,6 +12,4 @@ npm-debug.log
 yarn-error.log
 
 .idea/
-docs/datos de pruebas.XLSX
-docs/sources.md
-docs/SysBmiBmr.bsdesign
+docs/*
