@@ -41,12 +41,12 @@ class CalculadoraController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nombre' => 'required',
-            'apellido' => 'required',
-            'fecha_nacimiento' => 'required',
+            'nombre' => 'required|string|max:250|not_in:0',
+            'apellido' => 'required|string|max:250|not_in:0',
+            'fecha_nacimiento' => 'required|date',
             'genero' => 'required',
-            'peso' => 'required',
-            'estatura' => 'required',
+            'peso' => 'required|numeric',
+            'estatura' => 'required|numeric',
             'nivel_actividad' => 'required',
         ]);
 
