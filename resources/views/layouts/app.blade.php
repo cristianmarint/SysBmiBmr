@@ -163,7 +163,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Cristian Mar&iacute;n & Edwin Lopez</span>
+            <span>Cristian Mar&iacute;n, Edwin Lopez, Nicolas Ovalle, Brahian Cardona y Carlos Arroyave</span>
           </div>
         </div>
       </footer>

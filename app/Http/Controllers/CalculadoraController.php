@@ -18,7 +18,7 @@ class CalculadoraController extends Controller
      */
     public function index()
     {
-        $personas = Persona::all();
+        $personas = Persona::orderBy('created_at','desc')->get();
         return view('calculadora.index',compact('personas'))->render();
     }
 
