@@ -25,7 +25,7 @@ function bmi_categoria() {
 
 function cambiarGeneroIcono(categoria_bmi) {
   var genero = $('#genero').val();
-  $("#bmi_categoria_svg").attr("src","http://127.0.0.1:8000/svg/"+genero+"_"+categoria_bmi+".svg");
+  $("#bmi_categoria_svg").attr("src","http://sysbmibmr.herokuapp.com/svg/"+genero+"_"+categoria_bmi+".svg");
   $("#bmi_categoria_svg").css({"with":"50px","height":"50px"});
   $("#bmi_categoria_svg").addClass(" img-responsive mx-auto d-block");
 }
