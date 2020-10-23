@@ -2,6 +2,7 @@
 
 - Cristian Marin
 - Edwin López
+- Nicolas Ovalle Giraldo
 
 
 # SysBmiBmr 
