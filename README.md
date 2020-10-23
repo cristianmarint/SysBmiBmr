@@ -3,6 +3,7 @@
 - Cristian Marin
 - Edwin López
 - Nicolas Ovalle Giraldo
+- Carlos Arroyave
 
 
 # SysBmiBmr 
