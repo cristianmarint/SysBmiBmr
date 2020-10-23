@@ -1,3 +1,7 @@
+# Desarrollado por:
+
+- Cristian Marin
+
 
 # SysBmiBmr 
 > Calculadora BMI y BMR
