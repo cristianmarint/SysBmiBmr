@@ -1,6 +1,7 @@
 # Desarrollado por:
 
 - Cristian Marin
+- Edwin López
 
 
 # SysBmiBmr 
